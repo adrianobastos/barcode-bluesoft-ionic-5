@@ -1,20 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Barcode
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1>Click To Scan</h1>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-button color="primary" (click)="scanCode()">Scan Code</ion-button>
+
+  <div *ngIf="scannedData">
+    <p>Barcode: <b>{{ scannedData["text"] }} - {{ scannedData["format"] }}</b></p><br /><br />
+
+    <p>
+      Name: <b>{{ prodData.description }}</b><br />
+      Price: <b>{{ prodData.price }}</b><br /><br />
+    </p>
   </div>
 </ion-content>
